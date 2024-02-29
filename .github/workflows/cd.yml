@@ -29,6 +29,11 @@ jobs:
         run: npm run build
 
       - name: Deploy to server
-        run: scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ${{ secrets.SERVER_SSH }} -r build/* ${{ secrets.SERVER_USER }}@williamfrisk.com:/var/www/williamfrisk.com/
-        env:
-          SSH_AUTH_SOCK: /dev/null
+        uses: nogsantos/scp-deploy@master
+        with:
+          src: ./client/build/*
+          host: ${{ secrets.SSH_HOST }}
+          remote: ${{ secrets.SSH_DIR }}
+          port: ${{ secrets.SSH_PORT }}
+          user: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
