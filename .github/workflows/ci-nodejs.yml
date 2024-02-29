@@ -19,7 +19,7 @@ jobs:
           node-version: 20.x
 
       - name: Change to client directory
-        run: cd client
+        run: cd /client
 
       - name: Install dependencies
         run: npm install
