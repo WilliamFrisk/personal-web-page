@@ -1,9 +1,16 @@
 name: Node.js CI
 
 on:
+  push:
+    branches:
+      - master
   pull_request:
     branches:
       - master
+
+defaults:
+  run:
+    working-directory: ./client/
 
 jobs:
   test:
@@ -17,15 +24,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20.x
-
-      - name: Change to client directory
-        run: cd /client
+          cache: npm
+          cache-dependency-path: "client/package-lock.json"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
 
       - name: Run tests
         run: npm test
-
-      - name: Build
-        run: npm build
