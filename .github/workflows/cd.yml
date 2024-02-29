@@ -29,6 +29,6 @@ jobs:
         run: npm run build
 
       - name: Deploy to server
-        run: scp -i ${{ secrets.SERVER_SSH }} -r build/* ${{ secrets.SERVER_USER }}@williamfrisk.com:/var/www/williamfrisk.com/
+        run: scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ${{ secrets.SERVER_SSH }} -r build/* ${{ secrets.SERVER_USER }}@williamfrisk.com:/var/www/williamfrisk.com/
         env:
           SSH_AUTH_SOCK: /dev/null
