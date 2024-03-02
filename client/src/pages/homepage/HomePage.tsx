@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
-import Boids from "../components/boids/Boids.jsx";
+import Boids from "../../components/boids/Boids.jsx";
 import "./HomePage.css";
 
 const HomePage: React.FC = () => {
