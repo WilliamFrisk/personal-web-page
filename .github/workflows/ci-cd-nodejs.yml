@@ -4,10 +4,14 @@ on:
   push:
     branches:
       - master
+    paths:
+      - client/**
   pull_request:
     branches:
       - master
       - develop
+    paths:
+      - client/**
 
 defaults:
   run:
