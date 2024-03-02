@@ -194,7 +194,7 @@ class Boids extends React.Component {
     let flock;
 
     p.setup = () => {
-      p.createCanvas(window.innerWidth, window.innerHeight - 78);
+      p.createCanvas(p.windowWidth, p.windowHeight - 61);
       p.frameRate(60);
       p.pixelDensity(2.0);
 
@@ -212,7 +212,7 @@ class Boids extends React.Component {
     };
 
     p.windowResized = () => {
-      p.resizeCanvas(window.innerWidth, window.innerHeight - 78);
+      p.resizeCanvas(p.windowWidth, p.windowHeight - 61);
     };
   };
 

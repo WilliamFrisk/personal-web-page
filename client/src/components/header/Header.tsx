@@ -6,7 +6,7 @@ const Header: React.FC = () => {
   return (
     <Navbar
       expand="lg"
-      className="header"
+      className="header p-0"
       variant="dark"
       bg="dark"
       data-bs-theme="dark"
