@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import "./Header.css";
 
 const Header: React.FC = () => {
