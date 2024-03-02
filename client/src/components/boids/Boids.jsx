@@ -1,10 +1,14 @@
 import React from "react";
 import * as p5 from "p5";
+import P5Mock from "../../utils/P5Mock";
 
 class Boids extends React.Component {
   constructor() {
     super();
     this.myRef = React.createRef();
+    if (process.env.NODE_ENV === "test") {
+      this.myP5 = new P5Mock(this.Sketch, this.myRef.current);
+    }
   }
 
   Sketch = (p) => {
@@ -213,12 +217,20 @@ class Boids extends React.Component {
   };
 
   componentDidMount() {
-    this.myP5 = new p5(this.Sketch, this.myRef.current);
+    if (process.env.NODE_ENV === "test") {
+      this.myP5 = new P5Mock(this.Sketch, this.myRef.current);
+    } else {
+      this.myP5 = new p5(this.Sketch, this.myRef.current);
+    }
   }
 
   componentDidUpdate() {
     this.myP5.remove();
-    this.myP5 = new p5(this.Sketch, this.myRef.current);
+    if (process.env.NODE_ENV === "test") {
+      this.myP5 = new P5Mock(this.Sketch, this.myRef.current);
+    } else {
+      this.myP5 = new p5(this.Sketch, this.myRef.current);
+    }
   }
 
   componentWillUnmount() {
