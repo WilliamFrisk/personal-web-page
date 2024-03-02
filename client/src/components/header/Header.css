@@ -1,0 +1,7 @@
+.header {
+  background: linear-gradient(to bottom, var(--secondary), black 60%);
+}
+
+.home-image {
+  font-size: 1.5em;
+}
